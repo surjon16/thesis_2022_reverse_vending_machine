@@ -81,7 +81,7 @@ void loop() {
       "Bottle not PET.",
       ""
     );
-    acceptBottle();
+    rejectBottle();
   }
 
   if(bottleCount > 0) {    
