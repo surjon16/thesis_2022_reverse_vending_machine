@@ -3,7 +3,7 @@
 
 void setupUltrasonic() {
   pinMode(TRIG, OUTPUT);
-  pinMode(ECHO, INPUT);  
+  pinMode(ECHO, INPUT);
 }
 
 int isObject() {

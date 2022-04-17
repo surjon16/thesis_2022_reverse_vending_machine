@@ -2,7 +2,7 @@
 #define _PHOTOSENSOR_H
 
 void setupPhotoSensor() {
-  pinMode(PhotoSense, INPUT);   
+  pinMode(PhotoSense, INPUT);
 }
 
 int isPET() {
@@ -17,8 +17,8 @@ int isPET() {
     delay(5);
   }
   float average = data/totalSamples;
-  if(average >= 0.9) return 0;
-  else return 1;
+  if(average >= 0.9) return 0; // 90 Percent non-PET
+  else return 1; // PET
   
 }
 

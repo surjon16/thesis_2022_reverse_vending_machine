@@ -24,7 +24,7 @@ int binIsFull() {
 */
   if (Loadcell.update()) {
     current_weight = Loadcell.getData();
-    updateScreen(String(current_weight), "");
+//    updateScreen(String(current_weight), "");
     Serial.println(current_weight);
     delay(500);
   }

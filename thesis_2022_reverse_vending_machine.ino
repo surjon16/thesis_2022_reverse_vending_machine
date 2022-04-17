@@ -21,6 +21,7 @@ void setup() {
 
 void loop() {
 
+  // This will check if the bin is full.
   while(binIsFull()) {
     if((millis() - blink_rate) >= 500) {
   
@@ -39,6 +40,7 @@ void loop() {
     }
   }
 
+  // This will check if the object is detected.
   while(!isObject()) {
     if((millis() - blink_rate) >= 500) {
   
@@ -67,7 +69,8 @@ void loop() {
   );
   
   delay(500);
-  
+
+  // This will classify PET and non-PET
   if(isPET()) {
     bottleCount++;
     updateScreen(
@@ -84,6 +87,7 @@ void loop() {
     rejectBottle();
   }
 
+  // Prompt user to insert more or collect reward.
   if(bottleCount > 0) {    
     
     if(!promptUser(String("PUSH to put more"), timeout)) {
@@ -138,7 +142,7 @@ void calculateReward() {
 
   if(totalAmount == 0) updateScreen("Zero balance.", "Donating ..."); //updateScreen("Not enough", "money left.");
   else {      
-    if(totalAmount >= totalReward) {
+    if(totalAmount >= totalReward) { // If the total Amount is sufficient.
       while(totalReward > 0) {
         if(totalReward >= 1 && totalPeso - 1 >= 0) {
           pushPeso();
@@ -154,8 +158,8 @@ void calculateReward() {
         updateScreen("Reward Left:", String(totalReward));
       }
     }
-    else {
-      updateScreen("We can only give", String(totalReward) + " reward.");
+    else { // If the total Amount is insufficient for the Reward.
+      updateScreen("We can only give", String(totalAmount) + " reward.");
       while(totalAmount > 0) {
         if(totalPeso > 0) {
           pushPeso();

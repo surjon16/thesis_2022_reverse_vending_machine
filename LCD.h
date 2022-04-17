@@ -3,7 +3,7 @@
 
 #include "LiquidCrystal.h"
 
-LiquidCrystal LCD(7, 6, 5, 4, 3, 2);
+LiquidCrystal LCD(7, 6, 5, 4, 3, 2); // PIN ASSIGNMENTS FOR LCD TO ARDUINO
 
 void setupLCD() {
   LCD.begin(16, 2);
