@@ -5,7 +5,7 @@
 
 Servo Valve, Coin;
 
-void setupServos() {  
+void setupServos() {
   pinMode(ServoValve, OUTPUT);
   pinMode(ServoCoin, OUTPUT);   
   Valve.attach(ServoValve);

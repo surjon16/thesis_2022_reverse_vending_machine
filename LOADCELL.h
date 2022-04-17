@@ -6,7 +6,15 @@
 HX711_ADC Loadcell(DOUT, SCK);
 
 void setupLoadCell() {
+  float calFactor = 696.0;
   Loadcell.begin();
+  Loadcell.start(2000, true);
+  if (Loadcell.getTareTimeoutFlag())
+      updateScreen(
+        "TIMEOUT! PLEASE", 
+        "CHECK THE PINS."
+      );
+  else Loadcell.setCalFactor(calFactor);  
 }
 
 int binIsFull() {
@@ -14,7 +22,13 @@ int binIsFull() {
  * This will monitor the weight of the Bin.
   Returns True or False
 */
-  return Loadcell.getData() > 5000;
+  if (Loadcell.update()) {
+    current_weight = Loadcell.getData();
+    updateScreen(String(current_weight), "");
+    Serial.println(current_weight);
+    delay(500);
+  }
+  return current_weight >= 5000;
 }
 
 void calibrationMode() {

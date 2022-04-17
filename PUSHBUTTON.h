@@ -2,7 +2,7 @@
 #define _PUSHBUTTON_H
 
 void setupButtons() {  
-  pinMode(PushButton, INPUT);  
+  pinMode(PushButton, INPUT);
 }
 
 int isButton() {
@@ -10,7 +10,7 @@ int isButton() {
  * Check the button if pushed.
  * Returns True or False
 */
-  return digitalRead(PushButton);  
+  return digitalRead(PushButton);
 }
 
 #endif

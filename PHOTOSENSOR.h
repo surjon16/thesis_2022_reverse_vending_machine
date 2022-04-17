@@ -11,14 +11,15 @@ int isPET() {
  * Returns True or False
 */ 
   int data = 0;
-  int totalSamples = 2000;
+  int totalSamples = 100;
   for(int samples=1; samples<=totalSamples; samples++){
     if (digitalRead(PhotoSense)) data++;
-    delay(10);
+    delay(5);
   }
   float average = data/totalSamples;
-  if(average >= 90) return 0;
+  if(average >= 0.9) return 0;
   else return 1;
+  
 }
 
 #endif
